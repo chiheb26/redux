@@ -1,6 +1,6 @@
 const redux = require ('redux')
 const reduxLogger = require('redux-logger')
-
+const bindActionCreators= redux.bindActionCreators
 const combineReducers= redux.combineReducers
 const createStore= redux.createStore
 const logger = reduxLogger.createLogger()
@@ -57,4 +57,7 @@ store.dispatch(buyCake())
 store.dispatch(buyCake())
 store.dispatch(buyIceCream())
 store.dispatch(buyIceCream())
+const actons = bindActionCreators({buyCake,buyIceCream},store.dispatch)
+actons.buyCake()
+actons.buyIceCream()
 unsubscribe()
